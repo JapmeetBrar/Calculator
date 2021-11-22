@@ -2,9 +2,24 @@ const numbtns = document.querySelectorAll('.num');
 const output = document.querySelector('.output');
 const operators = document.querySelectorAll('.operators');
 
+let num1;
+let num2;
+let operation;
+let firstnum = true;
+
 numbtns.forEach((button)=>{
     button.addEventListener('click', function(e){
-        changeDisplay(e.target.id);
+        if (num1 == undefined){
+            changeDisplay(e.target.id);
+        } else {
+            if (firstnum == true){
+                output.textContent = "";
+                firstnum = false;
+                changeDisplay(e.target.id);
+            }else {
+                changeDisplay(e.target.id);
+            }
+        }
     })
 })
 
@@ -21,33 +36,71 @@ function changeDisplay (value){
 function getValue (){
     return parseFloat(output.textContent);
 }
-let num1;
-let num2;
-let operation;
 
 
 function mainFunction(operator){
 
     switch (operator){
+
         case "clear":
             output.textContent = "";
+            num1 = undefined;
+            num2 = undefined;
+            firstnum = true;
             break;
+
         case "backspace":
             // I DONT KNOW HOW TO DO THIS YET
             break;
+
         case "add":
-            console.log("ADD")
             operation = "+";
-            if (isNaN(num1)){
-                num1 = getValue();
-            }else{
-                num2 = getValue();
-                console.log("NUM  " + num2);
+            if (isNaN(num1) == false && isNaN(num2) == false ){
+                output.textContent = "";
                 operate(operation, num1, num2);
             }
+            if (num1 == undefined){
+                num1 = getValue();
+            }else {
+                num2 = getValue();
+            }
+            break;
+        
+        case "subtract":
+            operation = "-";
+            if (num1 == undefined){
+                num1 = getValue();
+            }else {
+                num2 = getValue();
+            }
+            break;
+        
+        case "multiply":
+            operation = "*";
+            if (num1 == undefined){
+                num1 = getValue();
+            }else {
+                num2 = getValue();
+            }
+            break;
+        
+        case "divide":
+            operation = "/";
+            if (num1 == undefined){
+                num1 = getValue();
+            }else {
+                num2 = getValue();
+            }
+            break;
 
+
+        case "equals":
+            num2 = getValue();
             output.textContent = "";
-            
+            operate(operation, num1, num2);
+            num1 = getValue();
+            num2 = undefined;
+            firstnum = true;
             
     }
 }
@@ -68,7 +121,7 @@ function operate (oper, a, b){
             changeDisplay(divide(a, b));
             break;
         default:
-            console.log("Invalid Operator")
+            console.log("Invalid Operator: " + oper)
     }
 }
 

@@ -71,12 +71,19 @@ body{
     height: 150px;
     border-radius: 10px;
     flex: 1 0 auto;
+    background-color:rgba(193, 231, 243, 0.795);
     
 }
+
 .operators{
     width: 100px;
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
     flex: 1 0 auto;
+}
+
+
+button:active{
+    transform: translateY(3px)
 }
