@@ -52,13 +52,13 @@ body{
     flex: 1 0 auto;
 }
 
-.numbers .zero{
+.numbers #0{
     width: 120px;
     margin-right: 0;
     margin-bottom: 0;
 }
 
-.numbers .decimal{
+.numbers #.{
     width: 120px;
     font-weight: 900;
     margin-bottom: 0;
