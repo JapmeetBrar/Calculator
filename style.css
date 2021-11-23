@@ -44,7 +44,7 @@ body{
     margin-right: 40px;
 }
 
-.num{
+.num, .decimal{
     width: 120px;
     height: 150px;
     border-radius: 10px;
@@ -52,13 +52,13 @@ body{
     flex: 1 0 auto;
 }
 
-.numbers #0{
+.numbers .zero{
     width: 120px;
     margin-right: 0;
     margin-bottom: 0;
 }
 
-.numbers #.{
+.numbers .decimal{
     width: 120px;
     font-weight: 900;
     margin-bottom: 0;
