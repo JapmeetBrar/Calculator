@@ -125,6 +125,7 @@ function mainFunction(operator){
 
         case "equals":
             num2 = getValue();
+            if (isNaN(num1) || isNaN(num2)){break;}
             output.textContent = "";
             btnequals = true;
             operate(operation, num1, num2);
